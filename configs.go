@@ -383,6 +383,7 @@ type CopyMessageConfig struct {
 	Caption             string
 	ParseMode           string
 	CaptionEntities     []MessageEntity
+	MessageThreadID     int
 }
 
 func (config CopyMessageConfig) params() (Params, error) {
@@ -395,6 +396,7 @@ func (config CopyMessageConfig) params() (Params, error) {
 	params.AddNonZero("message_id", config.MessageID)
 	params.AddNonEmpty("caption", config.Caption)
 	params.AddNonEmpty("parse_mode", config.ParseMode)
+	params.AddNonZero("message_thread_id", config.MessageThreadID)
 	err = params.AddInterface("caption_entities", config.CaptionEntities)
 
 	return params, err
