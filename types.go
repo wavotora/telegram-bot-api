@@ -746,7 +746,8 @@ type MessageEntity struct {
 	// Language for “pre” only, the programming language of the entity text
 	//
 	// optional
-	Language string `json:"language,omitempty"`
+	Language      string `json:"language,omitempty"`
+	CustomEmojiID string `json:"custom_emoji_id,omitempty"`
 }
 
 // ParseURL attempts to parse a URL contained within a MessageEntity.
@@ -1425,7 +1426,8 @@ type InlineKeyboardButton struct {
 	// NOTE: This type of button must always be the first button in the first row.
 	//
 	// optional
-	Pay bool `json:"pay,omitempty"`
+	Pay               bool   `json:"pay,omitempty"`
+	IconCustomEmojiID string `json:"icon_custom_emoji_id,omitempty"`
 }
 
 // LoginURL represents a parameter of the inline keyboard button used to

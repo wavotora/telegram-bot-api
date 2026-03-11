@@ -354,6 +354,7 @@ type ForwardConfig struct {
 	FromChatID          int64 // required
 	FromChannelUsername string
 	MessageID           int // required
+	MessageThreadID     int
 }
 
 func (config ForwardConfig) params() (Params, error) {
@@ -364,6 +365,7 @@ func (config ForwardConfig) params() (Params, error) {
 
 	params.AddNonZero64("from_chat_id", config.FromChatID)
 	params.AddNonZero("message_id", config.MessageID)
+	params.AddNonZero("message_thread_id", config.MessageThreadID)
 
 	return params, nil
 }
