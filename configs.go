@@ -284,9 +284,9 @@ func (chat *BaseChat) params() (Params, error) {
 	params.AddBool("disable_notification", chat.DisableNotification)
 	params.AddBool("allow_sending_without_reply", chat.AllowSendingWithoutReply)
 	params.AddBool("protect_content", chat.ProtectContent)
-	params.AddNonZero64("effect", chat.Effect)
-	params.AddBool("noforwards", chat.NoForwards)
-	params.AddBool("invert_media", chat.InvertMedia)
+	params.AddNonZero64("message_effect_id", chat.Effect)
+	params.AddBool("protect_content", chat.NoForwards)
+	params.AddBool("show_caption_above_media", chat.InvertMedia)
 
 	err := params.AddInterface("reply_markup", chat.ReplyMarkup)
 
