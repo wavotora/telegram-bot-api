@@ -271,6 +271,9 @@ type BaseChat struct {
 	ReplyMarkup              interface{}
 	DisableNotification      bool
 	AllowSendingWithoutReply bool
+	Effect                   int64
+	NoForwards               bool
+	InvertMedia              bool
 }
 
 func (chat *BaseChat) params() (Params, error) {
@@ -281,6 +284,9 @@ func (chat *BaseChat) params() (Params, error) {
 	params.AddBool("disable_notification", chat.DisableNotification)
 	params.AddBool("allow_sending_without_reply", chat.AllowSendingWithoutReply)
 	params.AddBool("protect_content", chat.ProtectContent)
+	params.AddNonZero64("effect", chat.Effect)
+	params.AddBool("noforwards", chat.NoForwards)
+	params.AddBool("invert_media", chat.InvertMedia)
 
 	err := params.AddInterface("reply_markup", chat.ReplyMarkup)
 
